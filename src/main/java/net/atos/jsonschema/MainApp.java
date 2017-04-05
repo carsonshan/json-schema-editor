@@ -19,7 +19,7 @@ public class MainApp extends Application {
         Scene scene = new Scene(root);
         scene.getStylesheets().add("/styles/Styles.css");
 
-        stage.setTitle("JavaFX and Maven");
+        stage.setTitle("JSON Scheme validator by Dino Lupo - Atos");
         stage.setScene(scene);
         stage.show();
     }
@@ -33,16 +33,6 @@ public class MainApp extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
-        // demo json
-/*        try (InputStream inputStream = getClass().getResourceAsStream("/path/to/your/schema.json")) {
-            JSONObject rawSchema = new JSONObject(new JSONTokener(inputStream));
-            Schema schema = SchemaLoader.load(rawSchema);
-            schema.validate(new JSONObject("{\"hello\" : \"world\"}")); // throws a ValidationException if this object is invalid
-        }
-*/
-        // end demo json
-
         launch(args);
     }
 

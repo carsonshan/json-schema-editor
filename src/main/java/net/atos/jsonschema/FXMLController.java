@@ -2,9 +2,12 @@ package net.atos.jsonschema;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 
@@ -54,6 +57,13 @@ public class FXMLController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        
+        final String TEXT_AREA_CLASS = "text-area";
+        
+        jsonSchema.getStyleClass().add(TEXT_AREA_CLASS);
+        jsonText.getStyleClass().add(TEXT_AREA_CLASS);
+        
+        jsonSchema.focusedProperty().addListener(new TextAreaFocusListener(jsonSchema));
+        jsonText.focusedProperty().addListener(new TextAreaFocusListener(jsonText));
     }
 }
