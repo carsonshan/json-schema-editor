@@ -1,18 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="510.0" prefWidth="566.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.atos.jsonschema.FXMLController">
+<AnchorPane id="AnchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.atos.jsonschema.FXMLController">
     <children>
-        <Button fx:id="validateButton" layoutX="255.0" layoutY="457.0" onAction="#handleButtonAction" text="Validate" />
-        <Label fx:id="messageLabel" layoutX="324.0" layoutY="461.0" minHeight="16" minWidth="69" prefHeight="16.0" prefWidth="226.0" />
-      <TextArea fx:id="jsonText" layoutX="14.0" layoutY="32.0" prefHeight="421.0" prefWidth="267.0" text="{    &quot;id&quot;: 1,    &quot;name&quot;: &quot;A green door&quot;,    &quot;price&quot;: 12.50,    &quot;tags&quot;: [&quot;home&quot;, &quot;green&quot;]}" wrapText="true" />
-      <TextArea fx:id="jsonSchema" layoutX="283.0" layoutY="32.0" prefHeight="421.0" prefWidth="267.0" text="{    &quot;$schema&quot;: &quot;http://json-schema.org/draft-04/schema#&quot;,    &quot;title&quot;: &quot;Product&quot;,    &quot;description&quot;: &quot;A product from Acme's catalog&quot;,    &quot;type&quot;: &quot;object&quot;,    &quot;properties&quot;: {        &quot;id&quot;: {            &quot;description&quot;: &quot;The unique identifier for a product&quot;,            &quot;type&quot;: &quot;integer&quot;        },        &quot;name&quot;: {            &quot;description&quot;: &quot;Name of the product&quot;,            &quot;type&quot;: &quot;string&quot;        },        &quot;price&quot;: {            &quot;type&quot;: &quot;number&quot;,            &quot;minimum&quot;: 0,            &quot;exclusiveMinimum&quot;: true        },        &quot;tags&quot;: {            &quot;type&quot;: &quot;array&quot;,            &quot;items&quot;: {                &quot;type&quot;: &quot;string&quot;            },            &quot;minItems&quot;: 1,            &quot;uniqueItems&quot;: true        }    },    &quot;required&quot;: [&quot;id&quot;, &quot;name&quot;, &quot;price&quot;]}" wrapText="true" />
-      <Label layoutX="14.0" layoutY="14.0" prefHeight="16.0" prefWidth="267.0" text="JSON object to validate" />
-      <Label layoutX="283.0" layoutY="14.0" prefHeight="16.0" prefWidth="267.0" text="Json Schema" />
+      <SplitPane dividerPositions="0.5" orientation="VERTICAL" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+            <SplitPane dividerPositions="0.5">
+               <items>
+                  <TitledPane animated="false" text="JSON Object to validate">
+                     <content>
+                        <TextArea fx:id="jsonText" text="{    &quot;id&quot;: 1,    &quot;name&quot;: &quot;A green door&quot;,    &quot;price&quot;: 12.50,    &quot;tags&quot;: [&quot;home&quot;, &quot;green&quot;]}" wrapText="true" />
+                     </content>
+                  </TitledPane>
+                  <TitledPane animated="false" text="JSON Schema">
+                     <content>
+                        <TextArea fx:id="jsonSchema" text="{    &quot;$schema&quot;: &quot;http://json-schema.org/draft-04/schema#&quot;,    &quot;title&quot;: &quot;Product&quot;,    &quot;description&quot;: &quot;A product from Acme's catalog&quot;,    &quot;type&quot;: &quot;object&quot;,    &quot;properties&quot;: {        &quot;id&quot;: {            &quot;description&quot;: &quot;The unique identifier for a product&quot;,            &quot;type&quot;: &quot;integer&quot;        },        &quot;name&quot;: {            &quot;description&quot;: &quot;Name of the product&quot;,            &quot;type&quot;: &quot;string&quot;        },        &quot;price&quot;: {            &quot;type&quot;: &quot;number&quot;,            &quot;minimum&quot;: 0,            &quot;exclusiveMinimum&quot;: true        },        &quot;tags&quot;: {            &quot;type&quot;: &quot;array&quot;,            &quot;items&quot;: {                &quot;type&quot;: &quot;string&quot;            },            &quot;minItems&quot;: 1,            &quot;uniqueItems&quot;: true        }    },    &quot;required&quot;: [&quot;id&quot;, &quot;name&quot;, &quot;price&quot;]}" wrapText="true" />
+                     </content>
+                  </TitledPane>
+               </items>
+            </SplitPane>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                    <Button fx:id="validateButton" onAction="#handleButtonAction" text="Validate" />
+                    <Label fx:id="messageLabel" minHeight="20.0" minWidth="200.0" prefHeight="20.0" prefWidth="200.0">
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </HBox>
+        </items>
+      </SplitPane>
     </children>
 </AnchorPane>
