@@ -15,3 +15,11 @@
 .text-area:error .content {
     -fx-background-color: lightcoral;
 }
+
+.text-area:valid .content {
+    -fx-background-color: lightgreen;
+}
+
+.text-area:warn .content {
+    -fx-background-color: yellow;
+}

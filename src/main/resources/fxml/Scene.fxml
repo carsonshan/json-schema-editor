@@ -13,25 +13,44 @@
         <items>
             <SplitPane dividerPositions="0.5">
                <items>
-                  <TitledPane animated="false" text="JSON Object to validate">
-                     <content>
-                        <TextArea fx:id="jsonText" text="{    &quot;id&quot;: 1,    &quot;name&quot;: &quot;A green door&quot;,    &quot;price&quot;: 12.50,    &quot;tags&quot;: [&quot;home&quot;, &quot;green&quot;]}" wrapText="true" />
-                     </content>
-                  </TitledPane>
-                  <TitledPane animated="false" text="JSON Schema">
-                     <content>
-                        <TextArea fx:id="jsonSchema" text="{    &quot;$schema&quot;: &quot;http://json-schema.org/draft-04/schema#&quot;,    &quot;title&quot;: &quot;Product&quot;,    &quot;description&quot;: &quot;A product from Acme's catalog&quot;,    &quot;type&quot;: &quot;object&quot;,    &quot;properties&quot;: {        &quot;id&quot;: {            &quot;description&quot;: &quot;The unique identifier for a product&quot;,            &quot;type&quot;: &quot;integer&quot;        },        &quot;name&quot;: {            &quot;description&quot;: &quot;Name of the product&quot;,            &quot;type&quot;: &quot;string&quot;        },        &quot;price&quot;: {            &quot;type&quot;: &quot;number&quot;,            &quot;minimum&quot;: 0,            &quot;exclusiveMinimum&quot;: true        },        &quot;tags&quot;: {            &quot;type&quot;: &quot;array&quot;,            &quot;items&quot;: {                &quot;type&quot;: &quot;string&quot;            },            &quot;minItems&quot;: 1,            &quot;uniqueItems&quot;: true        }    },    &quot;required&quot;: [&quot;id&quot;, &quot;name&quot;, &quot;price&quot;]}" wrapText="true" />
-                     </content>
-                  </TitledPane>
+                  <AnchorPane>
+                     <children>
+                        <TitledPane animated="false" text="JSON Object to validate" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <content>
+                              <TextArea fx:id="jsonText" text="{    &quot;id&quot;: 1,    &quot;name&quot;: &quot;A green door&quot;,    &quot;price&quot;: 12.50,    &quot;tags&quot;: [&quot;home&quot;, &quot;green&quot;]}" wrapText="true" />
+                           </content>
+                        </TitledPane>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane>
+                     <children>
+                        <TitledPane animated="false" text="JSON Schema" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <content>
+                              <TextArea fx:id="jsonSchema" text="{    &quot;$schema&quot;: &quot;http://json-schema.org/draft-04/schema#&quot;,    &quot;title&quot;: &quot;Product&quot;,    &quot;description&quot;: &quot;A product from Acme's catalog&quot;,    &quot;type&quot;: &quot;object&quot;,    &quot;properties&quot;: {        &quot;id&quot;: {            &quot;description&quot;: &quot;The unique identifier for a product&quot;,            &quot;type&quot;: &quot;integer&quot;        },        &quot;name&quot;: {            &quot;description&quot;: &quot;Name of the product&quot;,            &quot;type&quot;: &quot;string&quot;        },        &quot;price&quot;: {            &quot;type&quot;: &quot;number&quot;,            &quot;minimum&quot;: 0,            &quot;exclusiveMinimum&quot;: true        },        &quot;tags&quot;: {            &quot;type&quot;: &quot;array&quot;,            &quot;items&quot;: {                &quot;type&quot;: &quot;string&quot;            },            &quot;minItems&quot;: 1,            &quot;uniqueItems&quot;: true        }    },    &quot;required&quot;: [&quot;id&quot;, &quot;name&quot;, &quot;price&quot;]}" wrapText="true" />
+                           </content>
+                        </TitledPane>
+                     </children>
+                  </AnchorPane>
                </items>
             </SplitPane>
-            <HBox prefHeight="100.0" prefWidth="200.0">
+            <HBox maxHeight="-Infinity" prefHeight="20.0" prefWidth="200.0">
                <children>
-                    <Button fx:id="validateButton" onAction="#handleButtonAction" text="Validate" />
-                    <Label fx:id="messageLabel" minHeight="20.0" minWidth="200.0" prefHeight="20.0" prefWidth="200.0">
+                  <Button fx:id="validateButton1" onAction="#formatAction" text="Format">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Button>
+                    <Button fx:id="validateButton" onAction="#validateAction" text="Validate">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin></Button>
+                    <Label fx:id="messageLabel" minHeight="20.0" minWidth="200.0" prefHeight="20.0" prefWidth="400.0">
                      <padding>
                         <Insets left="20.0" />
                      </padding>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
                   </Label>
                </children>
             </HBox>
